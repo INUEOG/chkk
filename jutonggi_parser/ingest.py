@@ -34,12 +34,17 @@ def main() -> int:
 
     repo = JutonggiRepository(args.db_dsn)
     repo.initialize()
-    inserted = repo.upsert_items(items)
+    summary = repo.sync_items(items)
 
     print(f"items={len(items)}")
     print(f"json={json_path}")
     print(f"db_dsn={args.db_dsn}")
-    print(f"upserted={inserted}")
+    print(f"added={summary['added']}")
+    print(f"updated={summary['updated']}")
+    print(f"deleted={summary['deleted']}")
+    print(f"unchanged={summary['unchanged']}")
+    print(f"history_upserted={summary['history_upserted']}")
+    print(f"changelog_inserted={summary['changelog_inserted']}")
     return 0
 
 
