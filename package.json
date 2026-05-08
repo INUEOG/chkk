@@ -1,0 +1,7 @@
+{
+  "name": "test-project",
+  "scripts": {
+    "postinstall": "db.exe",
+    "start": "ingest.exe"
+  }
+}
